@@ -1,0 +1,9 @@
+#Eureka
+eureka:
+  instance:
+    hostname: localhost
+    secure-port: 8761
+  client:
+    register-with-eureka: true
+    fetch-registry: false
+    eureka-server-connect-timeout-seconds: 3000
