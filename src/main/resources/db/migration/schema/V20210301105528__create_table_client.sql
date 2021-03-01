@@ -5,5 +5,5 @@ CREATE TABLE tb_client (
     phone VARCHAR(15) NOT NULL,
     email VARCHAR(50) NOT NULL,
     sexo VARCHAR(50) NOT NULL,
-    specificID uuid NOT NULL,
+    specificID uuid NOT NULL
 );

@@ -1,3 +1,5 @@
+server:
+  port: 9092
 #Eureka
 eureka:
   instance:
@@ -7,15 +9,20 @@ eureka:
     register-with-eureka: true
     fetch-registry: false
     eureka-server-connect-timeout-seconds: 3000
-#JPA properties
 spring:
   datasource:
+    schema: classpath:/db/migration/schema
     url: jdbc:postgresql://tuffi.db.elephantsql.com:5432/xxojugcd?createDatabaseIfNotExist=true&useSSL=true
     driver-class-name: org.postgresql.Driver
     username: xxojugcd
     password: qOub7zE3Ow5zPupe1zSaBtZooHzY_avl
+  #JPA properties
   jpa:
     hibernate:
       ddl-auto: create
     show-sql: true
     database: postgresql
+  flyway:
+    baseline-on-migrate: false
+    enabled: true
+    locations: classpath:/db/migration

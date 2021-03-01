@@ -1,2 +1,12 @@
-package br.com.bookstore.client.exceptions;public class ClientNotFoundException {
+package br.com.bookstore.client.exceptions;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class ClientNotFoundException extends RuntimeException {
+
+    public ClientNotFoundException(){
+        super("Client not Found");
+    }
 }
