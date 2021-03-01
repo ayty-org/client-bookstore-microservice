@@ -1,6 +1,7 @@
 package br.com.bookstore.client.client.services;
 
 import br.com.bookstore.client.client.ClientRepository;
+import br.com.bookstore.client.exceptions.ClientNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class DeleteClientServiceImpl implements DeleteClientService{
     @Override
     public void delete(Long id) {
         if(!clientRepository.existsById(id)){
-            throw new RuntimeException();
+            throw new ClientNotFoundException();
         }
 
         clientRepository.deleteById(id);
