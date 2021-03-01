@@ -7,3 +7,15 @@ eureka:
     register-with-eureka: true
     fetch-registry: false
     eureka-server-connect-timeout-seconds: 3000
+#JPA properties
+spring:
+  datasource:
+    url: jdbc:postgresql://tuffi.db.elephantsql.com:5432/xxojugcd?createDatabaseIfNotExist=true&useSSL=true
+    driver-class-name: org.postgresql.Driver
+    username: xxojugcd
+    password: qOub7zE3Ow5zPupe1zSaBtZooHzY_avl
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    database: postgresql
