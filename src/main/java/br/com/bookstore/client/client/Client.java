@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -35,4 +36,18 @@ public class Client implements Serializable {
 
     private Sex sexo;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID specificID = UUID.randomUUID();
+
+    public static Client to(ClientDTO dto) {
+        return Client
+                .builder()
+                .name(dto.getName())
+                .age(dto.getAge())
+                .phone(dto.getPhone())
+                .email(dto.getEmail())
+                .sexo(dto.getSexo())
+                .specificID(dto.getSpecificID())
+                .build();
+    }
 }
