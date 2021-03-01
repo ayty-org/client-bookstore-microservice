@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -35,4 +36,6 @@ public class Client implements Serializable {
 
     private Sex sexo;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID specificID = UUID.randomUUID();
 }
