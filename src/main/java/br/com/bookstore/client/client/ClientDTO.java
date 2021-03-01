@@ -1,16 +1,28 @@
 package br.com.bookstore.client.client;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.data.domain.Page;
+
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder(builderClassName = "Builder")
 public class ClientDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -35,4 +47,25 @@ public class ClientDTO implements Serializable {
     private Sex sexo;
 
     private UUID specificID = UUID.randomUUID();
+
+    public static ClientDTO from(Client entity) {
+        return ClientDTO
+                .builder()
+                .id(entity.getId())
+                .name(entity.getName())
+                .age(entity.getAge())
+                .phone(entity.getPhone())
+                .email(entity.getEmail())
+                .sexo(entity.getSexo())
+                .specificID(entity.getSpecificID())
+                .build();
+    }
+
+    public static List<ClientDTO> fromAll(List<Client> clients) {
+        return clients.stream().map(ClientDTO::from).collect(Collectors.toList());
+    }
+
+    public static Page<ClientDTO> fromPage(Page<Client> pages){
+        return pages.map(ClientDTO::from);
+    }
 }
