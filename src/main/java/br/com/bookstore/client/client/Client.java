@@ -37,7 +37,7 @@ public class Client implements Serializable {
     private Sex sexo;
 
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID specificID = UUID.randomUUID();
+    private String specificID = UUID.randomUUID().toString();
 
     public static Client to(ClientDTO dto) {
         return Client

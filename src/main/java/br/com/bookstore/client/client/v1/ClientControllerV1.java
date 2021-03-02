@@ -4,6 +4,7 @@ import br.com.bookstore.client.client.Client;
 import br.com.bookstore.client.client.ClientDTO;
 import br.com.bookstore.client.client.services.DeleteClientService;
 import br.com.bookstore.client.client.services.GetClientService;
+import br.com.bookstore.client.client.services.GetSpecificIdClientService;
 import br.com.bookstore.client.client.services.ListClientService;
 import br.com.bookstore.client.client.services.ListPageClientService;
 import br.com.bookstore.client.client.services.SaveClientService;
@@ -31,6 +32,7 @@ import java.util.List;
 public class ClientControllerV1 {
 
     private final GetClientService getClientAppService;
+    private final GetSpecificIdClientService getSpecificIdClientService;
     private final ListClientService listClientAppService;
     private final ListPageClientService listPageClientService;
     private final SaveClientService saveClientService;
@@ -40,6 +42,11 @@ public class ClientControllerV1 {
     @GetMapping(value = "/{id}") //list client by id
     public ClientDTO find(@PathVariable Long id) {
         return ClientDTO.from(getClientAppService.findById(id));
+    }
+
+    @GetMapping(value = "specificID/{specificID}") //list client by id
+    public ClientDTO findSpecificID(@PathVariable String specificID) {
+        return ClientDTO.from(getSpecificIdClientService.findBySpecificID(specificID));
     }
 
     @GetMapping //list all client

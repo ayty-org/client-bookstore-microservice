@@ -46,7 +46,7 @@ public class ClientDTO implements Serializable {
     @Enumerated(EnumType.STRING)
     private Sex sexo;
 
-    private UUID specificID = UUID.randomUUID();
+    private String specificID = UUID.randomUUID().toString();
 
     public static ClientDTO from(Client entity) {
         return ClientDTO

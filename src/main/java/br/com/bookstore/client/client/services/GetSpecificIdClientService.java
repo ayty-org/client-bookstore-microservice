@@ -6,5 +6,5 @@ import java.util.UUID;
 
 @FunctionalInterface
 public interface GetSpecificIdClientService {
-    Client findBySpecificID(UUID specificID);
+    Client findBySpecificID(String specificID);
 }
