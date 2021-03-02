@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,6 +38,7 @@ public class Client implements Serializable {
     private Sex sexo;
 
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "specific_id")
     private String specificID = UUID.randomUUID().toString();
 
     public static Client to(ClientDTO dto) {
