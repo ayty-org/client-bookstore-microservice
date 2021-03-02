@@ -9,5 +9,6 @@ import java.util.UUID;
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
-    Optional<Client> findBySpecificID(UUID specificID);
+    Optional<Client> findBySpecificID(String specificID);
+    boolean existsByEmailAndPhone(String email, String phone);
 }

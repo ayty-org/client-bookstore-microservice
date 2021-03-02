@@ -6,8 +6,6 @@ import br.com.bookstore.client.exceptions.ClientNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @RequiredArgsConstructor
 @Service
 public class GetSpecificIdClientServiceImpl implements GetSpecificIdClientService{
@@ -15,7 +13,7 @@ public class GetSpecificIdClientServiceImpl implements GetSpecificIdClientServic
     private final ClientRepository clientRepository;
 
     @Override
-    public Client findBySpecificID(UUID specificID) {
+    public Client findBySpecificID(String specificID) {
         return clientRepository.findBySpecificID(specificID).orElseThrow(ClientNotFoundException::new);
     }
 }
