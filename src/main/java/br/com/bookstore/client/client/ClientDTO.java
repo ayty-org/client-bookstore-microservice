@@ -44,9 +44,9 @@ public class ClientDTO implements Serializable {
 
     @NotNull(message = "The client sexo cannot be null")
     @Enumerated(EnumType.STRING)
-    private Sex sexo;
+    private Sex sex;
 
-    private String specificID = UUID.randomUUID().toString();
+    private String specificID;
 
     public static ClientDTO from(Client entity) {
         return ClientDTO
@@ -56,7 +56,7 @@ public class ClientDTO implements Serializable {
                 .age(entity.getAge())
                 .phone(entity.getPhone())
                 .email(entity.getEmail())
-                .sexo(entity.getSexo())
+                .sex(entity.getSex())
                 .specificID(entity.getSpecificID())
                 .build();
     }

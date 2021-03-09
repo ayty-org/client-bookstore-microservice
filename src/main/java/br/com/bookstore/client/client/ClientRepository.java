@@ -4,11 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
     Optional<Client> findBySpecificID(String specificID);
-    boolean existsByEmailAndPhone(String email, String phone);
+    boolean existsByEmailOrPhone(String email, String phone);
 }

@@ -53,7 +53,7 @@ class ListClientServiceTest {
                 () -> assertThat(result.get(0).getAge(), is(client.getAge())),
                 () -> assertThat(result.get(0).getEmail(), is(client.getEmail())),
                 () -> assertThat(result.get(0).getPhone(), is(client.getPhone())),
-                () -> assertThat(result.get(0).getSexo(), is(client.getSexo()))
+                () -> assertThat(result.get(0).getSex(), is(client.getSex()))
         );
 
         verify(clientRepository, times(1)).findAll();

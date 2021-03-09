@@ -56,13 +56,13 @@ class ListPageClientServiceTest {
                 () -> assertThat(result.getContent().get(0).getAge(), is(22)),
                 () -> assertThat(result.getContent().get(0).getEmail(), is("teste@email")),
                 () -> assertThat(result.getContent().get(0).getPhone(), is("teste-phone")),
-                () -> assertThat(result.getContent().get(0).getSexo(), is(Sex.MASCULINO)),
+                () -> assertThat(result.getContent().get(0).getSex(), is(Sex.MALE)),
 
                 ()-> assertThat(result.getContent().get(1).getName(), is("Aktsuki")),
                 () -> assertThat(result.getContent().get(1).getAge(), is(22)),
                 () -> assertThat(result.getContent().get(1).getEmail(), is("teste@email")),
                 () -> assertThat(result.getContent().get(1).getPhone(), is("teste-phone")),
-                () -> assertThat(result.getContent().get(1).getSexo(), is(Sex.MASCULINO))
+                () -> assertThat(result.getContent().get(1).getSex(), is(Sex.MALE))
         );
     }
 }

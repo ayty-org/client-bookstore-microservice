@@ -49,5 +49,6 @@ class DeleteClientServiceTest {
         Assertions.assertThrows(ClientNotFoundException.class, ()-> deleteClientService.delete(1L));
 
         verify(clientRepositoryMock, times(0)).deleteById(anyLong());
+        verify(clientRepositoryMock).existsById(anyLong());
     }
 }
