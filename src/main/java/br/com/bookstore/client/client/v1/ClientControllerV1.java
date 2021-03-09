@@ -44,7 +44,7 @@ public class ClientControllerV1 {
         return ClientDTO.from(getClientAppService.findById(id));
     }
 
-    @GetMapping(value = "specificID/{specificID}") //list client by id
+    @GetMapping(value = "/id/{specificID}") //list client by id
     public ClientDTO findSpecificID(@PathVariable String specificID) {
         return ClientDTO.from(getSpecificIdClientService.findBySpecificID(specificID));
     }

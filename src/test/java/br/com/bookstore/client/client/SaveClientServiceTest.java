@@ -49,7 +49,8 @@ class SaveClientServiceTest {
                 () -> assertThat(result.getAge(), is(22)),
                 () -> assertThat(result.getEmail(), is("teste@email")),
                 () -> assertThat(result.getPhone(), is("teste-phone")),
-                () -> assertThat(result.getSexo(), is(Sex.MASCULINO))
+                () -> assertThat(result.getSex(), is(Sex.MALE))
         );
     }
+    //TODO teste verificando quando o email e phone for igual
 }

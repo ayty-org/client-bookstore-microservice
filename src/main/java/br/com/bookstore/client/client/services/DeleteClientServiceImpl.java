@@ -13,6 +13,7 @@ public class DeleteClientServiceImpl implements DeleteClientService{
 
     @Override
     public void delete(Long id) {
+        //TODO ver relação com a compra
         if(!clientRepository.existsById(id)){
             throw new ClientNotFoundException();
         }

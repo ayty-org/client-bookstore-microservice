@@ -10,6 +10,8 @@ eureka:
     fetch-registry: false
     eureka-server-connect-timeout-seconds: 3000
 spring:
+  application:
+    name: client-service
   datasource:
     schema: classpath:/db/migration/schema
     url: jdbc:postgresql://tuffi.db.elephantsql.com:5432/xxojugcd?createDatabaseIfNotExist=true&useSSL=true

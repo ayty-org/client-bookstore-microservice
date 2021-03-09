@@ -2,7 +2,7 @@ package br.com.bookstore.client.client.services;
 
 import br.com.bookstore.client.client.Client;
 import br.com.bookstore.client.client.ClientRepository;
-import br.com.bookstore.client.exceptions.ClientAlreadyExistsException;
+import br.com.bookstore.client.exceptions.ClientEmailOrPhoneExistsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +14,8 @@ public class SaveClientServiceImpl implements SaveClientService {
 
     @Override
     public void insert(Client client) {
-        if(clientRepository.existsByEmailAndPhone(client.getEmail(), client.getPhone())){
-            throw new ClientAlreadyExistsException();
+        if(clientRepository.existsByEmailOrPhone(client.getEmail(), client.getPhone())){
+            throw new ClientEmailOrPhoneExistsException();
         }
         clientRepository.save(client);
     }

@@ -53,7 +53,7 @@ class GetClientServiceTest {
                 () -> assertThat(result.getAge(), is(22)),
                 () -> assertThat(result.getEmail(),is("teste@email")),
                 () -> assertThat(result.getPhone(),is("teste-phone")),
-                () -> assertThat(result.getSexo(), is(Sex.MASCULINO))
+                () -> assertThat(result.getSex(), is(Sex.MALE))
         );
 
         verify(clientRepositoryMock, times(1)).findById(1L);

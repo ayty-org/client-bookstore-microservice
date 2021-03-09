@@ -21,8 +21,8 @@ public class UpdateClientServiceImpl implements UpdateClientService {
         savedClient.setAge(clientDTO.getAge());
         savedClient.setEmail(clientDTO.getEmail());
         savedClient.setPhone(clientDTO.getPhone());
-        savedClient.setSexo(clientDTO.getSexo());
-
+        savedClient.setSex(clientDTO.getSex());
+        //TODO verificação entre email e phone
         clientRepository.save(savedClient);
     }
 }

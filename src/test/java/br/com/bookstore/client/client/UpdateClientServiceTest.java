@@ -64,7 +64,7 @@ class UpdateClientServiceTest {
                 () -> assertThat(result.getAge(), is(30)),
                 () -> assertThat(result.getEmail(), is("teste@email")),
                 () -> assertThat(result.getPhone(), is("teste-phone")),
-                () -> assertThat(result.getSexo(), is(Sex.MASCULINO))
+                () -> assertThat(result.getSex(), is(Sex.MALE))
         );
     }
 

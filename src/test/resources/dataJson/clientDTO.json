@@ -3,6 +3,5 @@
   "age": 21,
   "phone": "139091",
   "email": "jeremiaso@gmail.com",
-  "sexo": "MASCULINO",
-  "specificID": "d2dbaa68-48c6-451e-b34f-57b5b70fc0ed"
+  "sex": "MALE"
 }
