@@ -50,7 +50,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Tag("Controller")
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(ClientControllerV1.class)
-@DisplayName("Validates the functionality of the controller responsible of client")
+@DisplayName("Valida a funcionalidade do controlador responsável pelo cliente")
 class ClientControllerV1Test {
 
     private final String URL_CLIENT = "/v1/api/client";

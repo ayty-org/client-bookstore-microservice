@@ -26,7 +26,7 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @Tag("Service")
-@DisplayName("Validates the functionality of the services responsible for update client")
+@DisplayName("Valida a funcionalidade dos serviços responsáveis ​​pela atualização do cliente")
 class UpdateClientServiceTest {
 
     @Mock
@@ -40,7 +40,7 @@ class UpdateClientServiceTest {
     }
 
     @Test
-    @DisplayName("update client when successful")
+    @DisplayName("atualizar o cliente quando for bem sucedido")
     void updateReturnsClientUpdateWhenSuccessful(){
 
         Client putClientRequest = createClient()
@@ -69,7 +69,7 @@ class UpdateClientServiceTest {
     }
 
     @Test
-    @DisplayName("update throws ClientNotFoundException when client is not found")
+    @DisplayName("update lança ClientNotFoundException quando o cliente não é encontrado")
     void updateThrowClientNotFoundExceptionWhenClientNotFound() {
         when(clientRepositoryMock.findById(anyLong())).thenReturn(Optional.empty());
         assertThrows(ClientNotFoundException.class,()-> this.updateClientService.update(ClientDTO.builder().build(), 1L));
