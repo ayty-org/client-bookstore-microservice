@@ -96,7 +96,7 @@ class ClientControllerV1Test {
                 .andExpect(jsonPath("$.age", is(22)))
                 .andExpect(jsonPath("$.email", is("teste@email")))
                 .andExpect(jsonPath("$.phone", is("teste-phone")))
-                .andExpect(jsonPath("$.sex", is("MASCULINO")));
+                .andExpect(jsonPath("$.sex", is("MALE")));
 
         verify(getClientService).findById(anyLong());
     }
@@ -128,7 +128,7 @@ class ClientControllerV1Test {
                 .andExpect(jsonPath("$.age", is(22)))
                 .andExpect(jsonPath("$.email", is("teste@email")))
                 .andExpect(jsonPath("$.phone", is("teste-phone")))
-                .andExpect(jsonPath("$.sex", is("MASCULINO")));
+                .andExpect(jsonPath("$.sex", is("MALE")));
 
         verify(getSpecificIdClientService).findBySpecificID(anyString());
     }
@@ -151,13 +151,13 @@ class ClientControllerV1Test {
                 .andExpect(jsonPath("$[0].age", is(22)))
                 .andExpect(jsonPath("$[0].email",is("teste@email")))
                 .andExpect(jsonPath("$[0].phone",  is("teste-phone")))
-                .andExpect(jsonPath("$[0].sex", is("MASCULINO")))
+                .andExpect(jsonPath("$[0].sex", is("MALE")))
                 .andExpect(jsonPath("$[1].id", is(2)))
                 .andExpect(jsonPath("$[1].name", is("Aktsuki")))
                 .andExpect(jsonPath("$[1].age",  is(22)))
                 .andExpect(jsonPath("$[1].email", is("teste@email")))
                 .andExpect(jsonPath("$[1].phone", is("teste-phone")))
-                .andExpect(jsonPath("$[1].sex", is("MASCULINO")));
+                .andExpect(jsonPath("$[1].sex", is("MALE")));
 
 
         verify(listClientAppService).findAll();
@@ -181,7 +181,7 @@ class ClientControllerV1Test {
                 .andExpect(jsonPath("$.content[0].age",  is(22)))
                 .andExpect(jsonPath("$.content[0].email",is("teste@email")))
                 .andExpect(jsonPath("$.content[0].phone",is("teste-phone")))
-                .andExpect(jsonPath("$.content[0].sex", is("MASCULINO")));
+                .andExpect(jsonPath("$.content[0].sex", is("MALE")));
 
         verify(listPageClientService).findPage(pageable);
     }

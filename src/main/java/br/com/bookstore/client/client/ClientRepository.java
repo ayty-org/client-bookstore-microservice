@@ -10,4 +10,5 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 
     Optional<Client> findBySpecificID(String specificID);
     boolean existsByEmailOrPhone(String email, String phone);
+    boolean existsByEmailOrPhoneAndIdIsNot(String email, String phone, Long id);
 }

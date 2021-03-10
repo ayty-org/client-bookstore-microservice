@@ -52,5 +52,4 @@ class SaveClientServiceTest {
                 () -> assertThat(result.getSex(), is(Sex.MALE))
         );
     }
-    //TODO teste verificando quando o email e phone for igual
 }
