@@ -1,6 +1,7 @@
 package br.com.bookstore.client.client;
 
 import br.com.bookstore.client.client.services.UpdateClientServiceImpl;
+import br.com.bookstore.client.exceptions.ClientEmailOrPhoneExistsException;
 import br.com.bookstore.client.exceptions.ClientNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -20,6 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -73,6 +75,20 @@ class UpdateClientServiceTest {
     void updateThrowClientNotFoundExceptionWhenClientNotFound() {
         when(clientRepositoryMock.findById(anyLong())).thenReturn(Optional.empty());
         assertThrows(ClientNotFoundException.class,()-> this.updateClientService.update(ClientDTO.builder().build(), 1L));
+
+        verify(clientRepositoryMock, times(0)).save(any());
+    }
+
+    @Test
+    @DisplayName("update lança ClientEmailOrPhoneExistisException")
+    void updateThrowClientEmailOrPhoneExistExceptionWhenClientExistPhoneAndEmail() {
+        Client client = createClient().build();
+        Optional<Client> clientOptional  = Optional.of(client);
+
+        when(clientRepositoryMock.findById(anyLong())).thenReturn(clientOptional);
+        when(clientRepositoryMock.existsByEmailOrPhoneAndIdIsNot(client.getEmail(), client.getPhone(), client.getId())).thenReturn(Boolean.TRUE);
+
+        assertThrows(ClientEmailOrPhoneExistsException.class,()-> this.updateClientService.update(ClientDTO.from(client), 1L));
 
         verify(clientRepositoryMock, times(0)).save(any());
     }
