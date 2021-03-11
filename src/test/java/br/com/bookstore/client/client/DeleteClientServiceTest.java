@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @Tag("Service")
-@DisplayName("Validates the functionality of the services responsible for delete client")
+@DisplayName("Valida a funcionalidade dos serviços responsáveis pela exclusão do cliente")
 class DeleteClientServiceTest {
 
     @Mock
@@ -32,7 +32,7 @@ class DeleteClientServiceTest {
     }
 
     @Test
-    @DisplayName("delete remove clients when successful")
+    @DisplayName("delete, remover clientes quando bem-sucedido")
     void deleteRemoveClientWhenSuccessful() {
 
         when(clientRepositoryMock.existsById(anyLong())).thenReturn(true);
@@ -40,8 +40,9 @@ class DeleteClientServiceTest {
         verify(clientRepositoryMock).existsById(anyLong());
         verify(clientRepositoryMock).deleteById(anyLong());
     }
+
     @Test
-    @DisplayName("delete throws ClientNotFoundException when client is not found")
+    @DisplayName("delete, lança ClientNotFoundException quando o cliente não é encontrado")
     void deleteThrowClientNotFoundExceptionWhenClientNotFound() {
 
         when(clientRepositoryMock.existsById(anyLong())).thenReturn(false);

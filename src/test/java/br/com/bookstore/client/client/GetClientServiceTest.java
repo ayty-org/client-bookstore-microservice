@@ -24,7 +24,7 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @Tag("Service")
-@DisplayName("Validates the functionality of the services responsible for searching for a client by id ")
+@DisplayName("Valida a funcionalidade dos serviços responsáveis pela busca de um cliente por id")
 class GetClientServiceTest {
 
     @Mock

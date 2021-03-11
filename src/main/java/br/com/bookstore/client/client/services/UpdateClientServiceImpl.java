@@ -3,6 +3,7 @@ package br.com.bookstore.client.client.services;
 import br.com.bookstore.client.client.Client;
 import br.com.bookstore.client.client.ClientDTO;
 import br.com.bookstore.client.client.ClientRepository;
+import br.com.bookstore.client.exceptions.ClientEmailOrPhoneExistsException;
 import br.com.bookstore.client.exceptions.ClientNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,11 @@ public class UpdateClientServiceImpl implements UpdateClientService {
         savedClient.setEmail(clientDTO.getEmail());
         savedClient.setPhone(clientDTO.getPhone());
         savedClient.setSex(clientDTO.getSex());
-        //TODO verificação entre email e phone
+
+        if(clientRepository.existsByEmailOrPhoneAndIdIsNot(clientDTO.getEmail(), clientDTO.getPhone(), id)) {
+            throw new ClientEmailOrPhoneExistsException();
+        }
+
         clientRepository.save(savedClient);
     }
 }

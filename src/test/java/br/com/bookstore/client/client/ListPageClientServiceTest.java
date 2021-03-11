@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @Tag("Service")
-@DisplayName("Validates the functionality of the services responsible for pagination of all client")
+@DisplayName("Valida a funcionalidade dos serviços responsáveis pela paginação de todos os clientes")
 class ListPageClientServiceTest {
 
     @Mock
@@ -37,7 +37,7 @@ class ListPageClientServiceTest {
     }
 
     @Test
-    @DisplayName("listAll returns list of client inside page object when successful")
+    @DisplayName("listAll retorna a lista do cliente dentro do objeto da página quando bem-sucedido")
     void listAllReturnsListOfClientInsidePageObjectWhenSuccessful() {
 
         Pageable pageable = PageRequest.of(0, 2);

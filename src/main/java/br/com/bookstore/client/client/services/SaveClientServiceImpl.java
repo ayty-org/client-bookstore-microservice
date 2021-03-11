@@ -6,6 +6,8 @@ import br.com.bookstore.client.exceptions.ClientEmailOrPhoneExistsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @RequiredArgsConstructor
 @Service
 public class SaveClientServiceImpl implements SaveClientService {
@@ -17,6 +19,8 @@ public class SaveClientServiceImpl implements SaveClientService {
         if(clientRepository.existsByEmailOrPhone(client.getEmail(), client.getPhone())){
             throw new ClientEmailOrPhoneExistsException();
         }
+
+        client.setSpecificID(UUID.randomUUID().toString());
         clientRepository.save(client);
     }
 }
