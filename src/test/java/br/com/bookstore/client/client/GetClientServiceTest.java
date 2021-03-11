@@ -38,7 +38,7 @@ class GetClientServiceTest {
     }
 
     @Test
-    @DisplayName("findById returns client when succesful")
+    @DisplayName("findById retorna cliente com sucesso")
     void findByIdReturnClientWhenSuccessful(){
 
         Client client = createClient().build(); //create a build to client
@@ -61,7 +61,7 @@ class GetClientServiceTest {
     }
 
     @Test
-    @DisplayName("findById throws ClientNotFoundException when client is not found")
+    @DisplayName("findById lança ClientNotFoundException quando cliente não é encontrado")
     void findByIdClientThrowClientNotFoundExceptionWhenClientNotFound() {
 
         when(clientRepositoryMock.findById(anyLong())).thenReturn(Optional.empty());
